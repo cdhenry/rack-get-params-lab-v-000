@@ -24,7 +24,6 @@ class Application
       end
     elsif req.path.match(/add/)
       add_item = req.params["item"]
-      resp.write add_item
       if handle_search(add_item) == "#{add_item} is one of our items"
         @@cart << add_item unless @@cart.include?(add_item)
         resp.write "added #{add_item}"
